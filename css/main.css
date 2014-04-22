@@ -28,7 +28,6 @@ body{
 .heading{
     background:url(../img/section-bg.jpg);
     background-size: cover;
-    background-attachment: fixed;
     padding:8% 0px;
 }
 .heading h1{
