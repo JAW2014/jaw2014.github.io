@@ -23,7 +23,7 @@ html {
     line-height: 1.4;
 }
 body{
-    background:url(/img/skulls.png);
+    background:url(../img/skulls.png);
 }
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
