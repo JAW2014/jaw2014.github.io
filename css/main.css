@@ -25,6 +25,8 @@ html {
 body{
     background-color:#8fc1da;
     background-image:url(../img/bg-clouds.jpg);
+    background-repeat: repeat-x;
+    background-position: bottom center;
 
     animation: mainBg 40s linear infinite;
     -webkit-animation: mainBg 40s linear infinite;
