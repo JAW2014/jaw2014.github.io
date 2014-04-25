@@ -41,15 +41,15 @@ body{
     padding:5% 0px;
     background-color:#8fc1da;
     background-image:url(../img/bg-clouds.jpg);
-    background-position: 0px 170px;
+    background-position: bottom center;
     background-repeat: repeat-x;
 
     animation: clouds 40s linear infinite;
     -webkit-animation: clouds 40s linear infinite;
 }
 @-webkit-keyframes clouds {
-    from { background-position: 0 170px; }
-    to { background-position: 100% 170px; }
+    from { background-position: bottom center; }
+    to { background-position:  bottom center; }
 }
 @keyframes clouds{
     from{ background-position: 0 170px; }
