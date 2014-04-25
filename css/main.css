@@ -31,19 +31,19 @@ body{
     padding:5% 0px;
     background-color:#8fc1da;
     background-image:url(../img/bg-clouds.jpg);
-    background-position: 0px 150px;
+    background-position: 0px 170px;
     background-repeat: repeat-x;
 
-    animation: starsdust 40s linear infinite;
-    -webkit-animation: starsdust 40s linear infinite;
+    animation: clouds 40s linear infinite;
+    -webkit-animation: clouds 40s linear infinite;
 }
-@-webkit-keyframes starsdust {
-    from { background-position: 0 150px; }
-    to { background-position: 100% 150px; }
+@-webkit-keyframes clouds {
+    from { background-position: 0 170px; }
+    to { background-position: 100% 170px; }
 }
-@keyframes starsdust{
-    from{ background-position: 0 0; }
-    to { background-position:100% 0; }
+@keyframes clouds{
+    from{ background-position: 0 170px; }
+    to { background-position:100% 170px; }
 }
 .heading{
     background:url(../img/section-bg.jpg);
