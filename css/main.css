@@ -35,7 +35,6 @@ body{
     background-repeat: repeat-x;
     position: absolute;
     top:0px;
-    display: block;
     
     animation: Topclouds 40s linear infinite;
     -webkit-animation: Topclouds 40s linear infinite;
