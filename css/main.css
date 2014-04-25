@@ -23,7 +23,7 @@ html {
     line-height: 1.4;
 }
 body{
-    background-color:#8fc1da;
+    background-color:#8fc1da !important;
     background-image:url(../img/bg-clouds.jpg);
     background-repeat: repeat-x;
     background-position: bottom center;
