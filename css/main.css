@@ -25,11 +25,20 @@ html {
 body{
     background:url(../img/skulls.png);
 }
+@keyframes stars{
+    from{ background-position: 0 0; }
+    to { background-position:100% 0; }
+}
 .level2{
     width:100%;
     padding:5% 0px;
     background:url(../img/stardust.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+
+    animation:stars 40s linear infinite;
 }
+
 .heading{
     background:url(../img/section-bg.jpg);
     background-size: cover;
