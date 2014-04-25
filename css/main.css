@@ -37,7 +37,7 @@ body{
     animation: starsdust 40s linear infinite;
     -webkit-animation: starsdust 40s linear infinite;
 }
-@-webkit-keyframes animatedBackground {
+@-webkit-keyframes starsdust {
             from { background-position: 0 0; }
             to { background-position: 100% 0; }
         }
