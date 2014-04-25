@@ -39,6 +39,9 @@ body{
     font-size: 32px;
     line-height: 36px;
 }
+img {
+        max-width: 100% !important;
+    }
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection rule sets have to be separate.
