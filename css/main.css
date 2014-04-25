@@ -25,10 +25,7 @@ html {
 body{
     background:url(../img/skulls.png);
 }
-@keyframes starsdust{
-    from{ background-position: 0 0; }
-    to { background-position:100% 0; }
-}
+
 .level2{
     width:100%;
     padding:5% 0px;
@@ -37,8 +34,12 @@ body{
     background-repeat: repeat-x;
 
     animation: starsdust 40s linear infinite;
+    -webkit-animation: starsdust 40s linear infinite;
 }
-
+@keyframes starsdust{
+    from{ background-position: 0 0; }
+    to { background-position:100% 0; }
+}
 .heading{
     background:url(../img/section-bg.jpg);
     background-size: cover;
