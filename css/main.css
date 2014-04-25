@@ -42,8 +42,8 @@ body{
 .level2{
     width:100%;
     padding:5% 0px;
-    background-color:#8fc1da;
-    background-image:url(../img/bg-clouds.jpg);
+   /* background-color:#8fc1da;
+    background-image:url(../img/bg-clouds.jpg);*/
     background-position: 0px 170px;
     background-repeat: repeat-x;
 
