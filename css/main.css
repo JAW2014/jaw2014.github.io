@@ -25,6 +25,11 @@ html {
 body{
     background:url(../img/skulls.png);
 }
+.level2{
+    width:100%;
+    padding:5% 0px;
+    background:url(../img/stardust.png);
+}
 .heading{
     background:url(../img/section-bg.jpg);
     background-size: cover;
