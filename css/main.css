@@ -21,6 +21,7 @@ textarea {
 html {
     font-size: 1em;
     line-height: 1.4;
+    height:100%;
 }
 body{
     background-color:#8fc1da !important;
@@ -70,6 +71,10 @@ body{
 }
 .heading{
 
+}
+.level2{
+    position: relative;
+    z-index:999;
 }
 .heading h1{
     text-align: center;
