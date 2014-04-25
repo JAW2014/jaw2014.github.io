@@ -25,7 +25,7 @@ html {
 body{
     background:url(../img/skulls.png);
 }
-@keyframes stars{
+@keyframes starsdust{
     from{ background-position: 0 0; }
     to { background-position:100% 0; }
 }
@@ -36,7 +36,7 @@ body{
     background-position: 0px 0px;
     background-repeat: repeat-x;
 
-    animation:stars 40s linear infinite;
+    animation: starsdust 40s linear infinite;
 }
 
 .heading{
