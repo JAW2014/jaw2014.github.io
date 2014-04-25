@@ -29,13 +29,18 @@ body{
 .level2{
     width:100%;
     padding:5% 0px;
-    background:url(../img/bg-clouds.jpg);
+    background-color:#8fc1da;
+    background-image:url(../img/bg-clouds.jpg);
     background-position: 0px 0px;
     background-repeat: repeat-x;
 
     animation: starsdust 40s linear infinite;
     -webkit-animation: starsdust 40s linear infinite;
 }
+@-webkit-keyframes animatedBackground {
+            from { background-position: 0 0; }
+            to { background-position: 100% 0; }
+        }
 @keyframes starsdust{
     from{ background-position: 0 0; }
     to { background-position:100% 0; }
