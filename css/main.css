@@ -24,9 +24,7 @@ html {
 }
 body{
     background-color:#8fc1da !important;
-    background-image:url(../img/bg-clouds.jpg);
-    background-repeat: repeat-x;
-    background-position: bottom center;
+
 
     animation: mainBg 40s linear infinite;
     -webkit-animation: mainBg 40s linear infinite;
@@ -39,13 +37,15 @@ body{
     from{background-position: 100% 0px;}
     to{background-position: 100% 0px;}
 }
-.level2{
+.footer{
     width:100%;
-    padding:5% 0px;
-   /* background-color:#8fc1da;
-    background-image:url(../img/bg-clouds.jpg);*/
+    height:132px;
+    background-color:#8fc1da;
+    background-image:url(../img/bg-clouds.jpg);
     background-position: 0px 170px;
     background-repeat: repeat-x;
+    position: absolute;
+    bottom:0px;
 
     animation: clouds 40s linear infinite;
     -webkit-animation: clouds 40s linear infinite;
