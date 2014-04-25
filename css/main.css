@@ -35,6 +35,9 @@ body{
     color:#fff;
     font-family: 'Open Sans', 'sans-serif';
     color:#ed1d1d;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
 }
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
