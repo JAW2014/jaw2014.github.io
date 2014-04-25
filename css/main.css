@@ -25,7 +25,7 @@ html {
 body{
     background:url(../img/skulls.png);
     background-position: 0px 0px;
-    background-repeat: repeat-x;
+    background-repeat: repeat;
 
     animation: mainBg 40s linear infinite;
     -webkit-animation: mainBg 40s linear infinite;
