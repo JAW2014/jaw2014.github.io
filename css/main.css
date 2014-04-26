@@ -55,7 +55,7 @@ body{
     background-image:url(../img/bg-clouds.jpg);
     background-position: 0px 0px;
     background-repeat: repeat-x;
-    position: absolute;
+    position: fixed;
     bottom:0px;
 
     animation: clouds 40s linear infinite;
