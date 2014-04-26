@@ -85,12 +85,7 @@ body{
     font-size: 32px;
     line-height: 36px;
 }
-.level2 .row{
-    display: none;
-}
-.level2.frame{
-    display: block;
-}
+
 img {
         max-width: 100% !important;
     }
