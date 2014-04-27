@@ -210,7 +210,11 @@ textarea {
     display: none !important;
     visibility: hidden;
 }
-
+canvas{
+    width:100%;
+    max-width: 100%;
+    height:auto;
+}
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
