@@ -19,22 +19,141 @@
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
         <!-- Add your site or application content here -->
+        <div class="top"></div>
 
+ <canvas id="lookHere" width="600" height="400">
+        Canvas doesn't work.
+    </canvas>
+
+
+
+            
+       
+       
+       <!-- Not sure where to stick this -->
+       <h2>Use the arrow keys to move.<br>
+       Reload for a new background color.<br>
+       The line is so you don't lose track of the ball.</h2>
+       
+      
+
+    <script type="text/javascript">
+
+    window.onload = function()
+    {
+        var canvas = document.getElementById('lookHere');
+        var ctx = canvas.getContext('2d');
+        
+        var red = Math.ceil(Math.random() * 256);
+        var green = Math.ceil(Math.random() * 256);
+        var blue = Math.ceil(Math.random() * 256);
+        
+        canvas.style.backgroundColor = "rgba(" + red + ", " + green + ", " + blue + ", 0.8)";
+        
+        var background = new Image();
+        var img = new Image();  //  create new img element
+        
+        background.addEventListener("load", function()
+        {
+            ctx.drawImage(background, 0, 0);
+        }, false);
+        
+        background.src = 'stardust.png';
+
+        background.src = '/img/stardust.png';
+
+        
+        //img.onload = function()
+        img.addEventListener("load", function()
+        {
+            ctx.drawImage(img, 100, 100);
+        }, false);
+        
+        
+        var youX = 100;
+        var youY = 100;
+        var pressedKey;
+        
+        window.onkeydown = function()
+        {
+            setInterval(walk, 300);
+            pressedKey = event.keyCode;
+        } // end window.onkeydown
+        
+        window.onkeyup = function()
+        {
+            pressedKey = null;
+        }
+        
+        var walk = function()
+        {
+            
+            if (pressedKey == null)
+            {
+                clearInterval(walk);
+            }
+            
+            ctx.clearRect(0, 0, 750, 500);
+            
+            if (pressedKey == 40)       //down
+            {
+                if (youY <= 310)
+                {
+                    youY += 5;
+                }
+            }
+            else if(pressedKey == 38)   //up
+            {
+                if (youY >= 20)
+                {
+                    youY -= 5;
+                }
+            }
+            else if(pressedKey == 37)   //left
+            {
+                if (youX >= 20)
+                {
+                    youX -= 5;
+                }
+            }
+            else if(pressedKey == 39)   //right
+            {
+                if (youX <= 510)
+                {
+                    youX += 5;
+                }
+            }
+                        
+            ctx.drawImage(background, (-1 * youX) / 10, (-1 * youY) / 10);
+            ctx.drawImage(img, youX, youY);
+            ctx.beginPath();
+            ctx.moveTo(100, 100);
+            ctx.lineTo(youX, youY);
+            ctx.stroke();
+        }
+    } // end window.onload
+
+    
+    
+    </script>
+
+    <style>
+    
+        #lookHere
+        {
+            background:rgba(150, 10, 250, 0.5);
+            width:100%;
+            height:auto;
+            position: relative;
+            z-index: 9999;
+        }
+    
+    </style>
+       <div class="footer"></div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/jquery.lettering.js"></script>
-        <script>
-            jQuery(document).ready(function($){
-                //jquery goes here
-                $('h2').lettering('words').children("span").lettering();
-            });
-        </script>
     </body>
 </html>
