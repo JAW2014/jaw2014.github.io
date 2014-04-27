@@ -68,6 +68,7 @@ img.rocket{
     100%{left:100%;bottom:100%;}
 
 }
+<<<<<<< HEAD
 img.astronaut{
     display: block;
     position: absolute;
@@ -82,6 +83,54 @@ img.astronaut{
     65%{left:65%;}
     100%{left:100%;}
 }
+=======
+
+img.earth{
+    display: block;
+    width:500px;
+    height:500px;
+    position: absolute;
+    left:0;
+    bottom:0;
+
+}
+
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+
+img.redplanet{
+    display: block;
+    width:200px;
+    height:200px;
+    position: relative;
+    left:500px;
+    bottom:0;
+
+}
+
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    -webkit-animation: rotating 1.0s linear infinite;
+}
+
+
+
+>>>>>>> FETCH_HEAD
 .footer{
     width:100%;
     height:132px;
