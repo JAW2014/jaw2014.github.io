@@ -63,7 +63,7 @@
 			ctx.drawImage(background, 0, 0);
 		}, false);
 		
-		background.src = 'img/bg1.png';
+		background.src = 'bg1.png';
 		
 		//img.onload = function()
 		img.addEventListener("load", function()
@@ -71,7 +71,7 @@
 			ctx.drawImage(img, 100, 100);
 		}, false);
 		
-		img.src = 'img/ship.png';	//	set source path
+		img.src = 'ship.png';	//	set source path
 		
 		var youX = 100;
 		var youY = 100;
@@ -100,19 +100,31 @@
 			
 			if (pressedKey == 40) 		//down
 			{
-				youY += 5;
+				if (youY <= 310)
+				{
+					youY += 5;
+				}
 			}
 			else if(pressedKey == 38)	//up
 			{
-				youY -= 5;
+				if (youY >= 20)
+				{
+					youY -= 5;
+				}
 			}
 			else if(pressedKey == 37)	//left
 			{
-				youX -= 5;
+				if (youX >= 20)
+				{
+					youX -= 5;
+				}
 			}
 			else if(pressedKey == 39)	//right
 			{
-				youX += 5;
+				if (youX <= 510)
+				{
+					youX += 5;
+				}
 			}
 						
 			ctx.drawImage(background, (-1 * youX) / 10, (-1 * youY) / 10);
