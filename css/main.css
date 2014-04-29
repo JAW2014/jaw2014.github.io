@@ -25,13 +25,13 @@ html {
 }
 body{
     background-color:#8fc1da !important;
-   /* background-image: url(../img/stardust.png);*/
+   background-image: url(../img/stardust.png);
 
 }
 .bg{
     width:100%;
     height:100%;
-    background-color:#8fc1da;
+/*    background-color:#8fc1da;
      background-image: url(../img/stardust.png);
     background-position: 0px 0px;
     background-repeat: repeat-x;
@@ -39,7 +39,7 @@ body{
     top:0px;
     overflow: hidden;
     animation: Topclouds 40s linear infinite;
-    -webkit-animation: Topclouds 40s linear infinite;
+    -webkit-animation: Topclouds 40s linear infinite;*/
 }
 @-webkit-keyframes Topclouds {
     from { background-position: 0 0px; }
