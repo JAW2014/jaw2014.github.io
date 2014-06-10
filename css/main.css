@@ -115,6 +115,15 @@ img.redplanet{
 
 }
 
+@-webkit-keyframes redplanet{
+
+    0%{left:0;bottom:0;}
+    25%{left:25%;bottom:25%;}
+    75%{left:65%;bottom:65%;}
+    100%{left:100%;bottom:100%;}
+
+}
+
 @-webkit-keyframes rotating {
     from{
        /* -webkit-transform: rotate(0deg);*/
