@@ -46,5 +46,184 @@
                 $('h2').lettering('words').children("span").lettering();
             });
         </script>
+        
+
+	<canvas id="lookHere" width="600" height="400">
+		Canvas doesn't work.
+	</canvas>
+
+	<script type="text/javascript">
+
+	/*	Motion Equations
+	*	
+	*	d = (vi * t) + (1/2 * a * t^2)
+	*
+	*	vf = vi + (a * t)
+	*
+	*	vf^2 = vi^2 + (2 * a * d)
+	*
+	*	d = ((vi + vf) / 2) * t
+	*
+	*	where:
+	*		d = distance
+	*		vf = final velocity
+	*		vi = initial velocity
+	*		a = acceleration
+	*		t = time
+	*
+	*/
+	
+	window.onload = function()
+	{
+		var canvas = document.getElementById('lookHere');
+		var ctx = canvas.getContext('2d');
+		
+		var red = Math.ceil(Math.random() * 256);
+		var green = Math.ceil(Math.random() * 256);
+		var blue = Math.ceil(Math.random() * 256);
+		
+		canvas.style.backgroundColor = "rgba(" + red + ", " + green + ", " + blue + ", 0.8)";
+		
+		var d;
+		var vf;
+		var vi = 1;
+		var a = 60;
+		var t = 1;
+		
+		var background = new Image();
+		var img = new Image(); 	//	create new img element
+		
+		background.addEventListener("load", function()
+		{
+			ctx.drawImage(background, 0, 0);
+		}, false);
+		
+		background.src = 'bg1.png';
+		
+		//img.onload = function()
+		img.addEventListener("load", function()
+		{
+			ctx.drawImage(img, 100, 100);
+		}, false);
+		
+		img.src = 'ship.png';	//	set source path
+		
+		var youX = 100;
+		var youY = 100;
+		var pressedKey;
+		var walkTimer;
+		var jumpTimer;
+		
+		window.onkeydown = function()
+		{
+			pressedKey = event.keyCode;
+			//walkTimer = setInterval(walk, 300);
+			walk();
+		} // end window.onkeydown
+		
+		window.onkeyup = function()
+		{
+			pressedKey = null;
+			//clearInterval(walk);
+			//vi = 1;
+			//a = 60;
+			//t = 1;
+		}
+		
+		var testCount = 0;
+		
+		var walk = function()
+		{	
+			ctx.clearRect(0, 0, 750, 500);
+			
+			if (pressedKey == null)
+			{
+				//clearInterval(walkTimer);
+			}
+			else if (pressedKey == 40) 		//down
+			{
+				if (youY <= 310)
+				{
+					youY += 5;
+				}
+			}
+			else if(pressedKey == 38)	//up
+			{
+				if (youY >= 20)
+				{
+					//youY -= 5;
+					if (!jumpTimer)
+					{
+						jumpTimer = setInterval(jump, 30);
+					}
+				}
+			}
+			else if(pressedKey == 37)	//left
+			{
+				if (youX >= 20)
+				{
+					youX -= 5;
+				}
+			}
+			else if(pressedKey == 39)	//right
+			{
+				if (youX <= 510)
+				{
+					youX += 5;
+				}
+			}
+						
+			drawFrame();
+		}
+		
+		var jump = function()
+		{
+			ctx.clearRect(0, 0, 750, 500);
+			console.log('function jump works');
+			youY = (vi * t) + (1/2 * a * t^2);
+			a -= 0.98;
+			if (a < 1)
+			{
+				clearInterval(jumpTimer);
+				jumpTimer = null;
+				a = 60;
+				vi = 1;
+				t = 1;
+			}
+			//vi += 1;
+			t += 0.5;
+			drawFrame();
+		}
+		
+		var drawFrame = function()
+		{
+			ctx.drawImage(background, (-1 * youX) / 10, (-1 * youY) / 10);
+			ctx.drawImage(img, youX, youY);
+			ctx.beginPath();		//begin a line
+			ctx.moveTo(100, 100);	//set starting point
+			ctx.lineTo(youX, youY);	//set ending point
+			ctx.stroke();			//draw the line
+			console.log("youX: " + youX + "\tyouY: " + youY + "\tTest Count: " + testCount + "\ta: " + a + "\tt: " + t + "\tvi: " + vi + "\tpressedKey: " + pressedKey);
+			testCount++;
+		}
+	} // end window.onload
+
+
+	
+	</script>
+
+	<style>
+	
+		#lookHere
+		{
+			background:rgba(150, 10, 250, 0.5);
+			width:750px;
+			height:500px;
+		}
+	
+	</style>
+	
+
+        
     </body>
 </html>
