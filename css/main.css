@@ -303,9 +303,9 @@ textarea {
     visibility: hidden;
 }
 canvas{
-    width:100%;
+    /*width:100%;
     max-width: 100%;
-    height:auto;
+    height:auto;*/
 }
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
