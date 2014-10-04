@@ -59,6 +59,8 @@ window.onload = function() {
 	
 	var background = new Image();
 	var img = new Image(); 	//	create new img element
+	var enemy = new Array(5);
+	var enemyX;
 	
 	background.addEventListener("load", function()
 	{
@@ -75,6 +77,19 @@ window.onload = function() {
 	
 	img.src = 'ship.png';	//	set source path
 	
+	for(i = 0; i < enemy.length; i++)
+	{
+		ctx.fillStyle = '#0000FF';
+		enemy[i] = {
+			x: Math.random() * 400,
+			y: Math.random() * 500,
+			enemySizeX: 20,
+			enemySizeY: 20
+		}
+		//enemyX = Math.floor(Math.random() * 100);
+		//ctx.fillStyle = '#00FF00';
+		//ctx.fillRect(100, 100, enemyX, 50);
+	};
 
     // The player's state
     var player = {
@@ -149,28 +164,29 @@ window.onload = function() {
 	
 	
 	var jump = function()
+	{
+		//ctx.clearRect(0, 0, 750, 500);
+		console.log('function jump works');
+		player.y = (vi * t) + (1/2 * a * t^2);
+		a -= 0.98;
+		if (a < 1)
 		{
-			//ctx.clearRect(0, 0, 750, 500);
-			console.log('function jump works');
-			player.y = (vi * t) + (1/2 * a * t^2);
-			a -= 0.98;
-			if (a < 1)
-			{
-				clearInterval(jumpTimer);
-				jumpTimer = null;
-				a = 60;
-				vi = 1;
-				t = 1;
-			}
-			//vi += 1;
-			t += 0.5;
+			clearInterval(jumpTimer);
+			jumpTimer = null;
+			a = 60;
+			vi = 1;
+			t = 1;
 		}
+		//vi += 1;
+		t += 0.5;
+	}
 		
     // Update game objects.
     // We'll use GameInput to detect which keys are down.
     // If you look at the bottom of index.html, we load GameInput
     // from js/input.js right before app.js
-    function update(dt) {
+    function update(dt) 
+	{
         // Speed in pixels per second
         var playerSpeed = 100;
 
@@ -203,6 +219,30 @@ window.onload = function() {
         // You can pass any letter to `isDown`, in addition to DOWN,
         // UP, LEFT, RIGHT, and SPACE:
         // if(GameInput.isDown('a')) { ... }
+		
+		for (var i = 0; i < enemy.length; i++)
+		{
+			if (player.x < enemy[i].x + enemy[i].enemySizeX  && player.x + player.sizeX  > enemy[i].x &&
+			player.y < enemy[i].y + enemy[i].enemySizeY && player.y + player.sizeY > enemy[i].enemySizeY) 
+			{
+				// The objects are touching
+				ctx.fillStyle = '#FF0000';
+			}
+		}
+		
+		/*
+		*
+		*
+		*				Simple Collision Detection
+		*
+		*		if (object1.x < object2.x + object2.width  && object1.x + object1.width  > object2.x &&
+		*			object1.y < object2.y + object2.height && object1.y + object1.height > object2.y) 
+		*		{
+		*			// The objects are touching
+		*		}
+		*
+		*
+		*/
     }
 
     // Draw everything
@@ -210,10 +250,15 @@ window.onload = function() {
 		ctx.clearRect(0, 0, 600, 400);
         ctx.drawImage(background, (-1 * player.x) / 10, (-1 * player.y) / 10);
 		ctx.drawImage(img, player.x, player.y);
+		//ctx.drawImage(enemy, 100, 100, 50, 50);
 		ctx.beginPath();		//begin a line
 		ctx.moveTo(100, 100);	//set starting point
 		ctx.lineTo(player.x, player.y);	//set ending point
 		ctx.stroke();			//draw the line
+		for(var i = 0; i < enemy.length; i++)
+		{
+			ctx.fillRect(enemy[i].x, enemy[i].y, enemy[i].enemySizeX, enemy[i].enemySizeY);
+		}
 		console.log("player.x: " + player.x + "\tplayer.y: " + player.y + "\tTest Count: " + "\ta: " + a + "\tt: " + t + "\tvi: " + vi + "\tpressedKey: ");
 
 		//ctx.fillStyle = 'green';
