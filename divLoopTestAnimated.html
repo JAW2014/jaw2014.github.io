@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<style type="text/css">
+			.side
+			{
+				background:rgba(100, 100, 255, 0.2);
+				width:60px;
+				height:60px;
+				position:absolute;
+			}
+			
+			.side2
+			{
+				background:rgba(100, 255, 100, 0.2);
+				width:90px;
+				height:90px;
+				position:absolute;
+			}
+			
+			.side3
+			{
+				background:rgba(255, 100, 100, 0.2);
+				width:120px;
+				height:120px;
+				position:absolute;
+			}
+			
+			.threedim
+			{
+				background:rgba(100, 255, 100, 0.9);
+				position: absolute;
+				left: 0%;
+				top: 50%;
+				transform-style: preserve-3d;
+				transform-origin: 50% 50% 50%;
+				backface-visibility: hidden;
+			}
+		</style>
+
+		<script type="text/javascript">
+		window.onload = function() 
+		{
+			var assembly;
+			function createAssembly()
+			{
+				assembly = document.createElement('div');
+				assembly.className = 'threedim';
+				
+				document.body.appendChild(assembly);
+			}
+			
+			var sides = 50;
+			var face;
+			var face2;
+			var face3;
+			var faceY = 0;
+			var faceX = 0;
+			var faceX2 = 0;
+			
+			var row1 = [];
+			var row2 = [];
+			var row3 = [];
+			
+			console.log(row1);
+			
+			function createFace()
+			{
+				for (var i = 0; i < sides; i++)
+				{
+					face = document.createElement('div');
+					face.className = 'side';
+					face.style.left = faceX + 'px';
+					face.style.webkitTransform = 'rotate(' + faceX + 'deg)';
+					face.style.webkitTranslate3d = '(' + faceX + ', 0, 0)';
+					assembly.appendChild(face);
+					row1.push(face);
+					
+					face2 = document.createElement('div');
+					face2.className = 'side2';
+					face2.style.left = faceX + 'px';
+					face2.style.webkitTransform = 'rotate(' + faceX + 'deg)';
+					assembly.appendChild(face2);
+					row2.push(face2);
+
+					face3 = document.createElement('div');
+					face3.className = 'side3';
+					face3.style.left = faceX + 'px';
+					face3.style.webkitTransform = 'rotate(' + faceX2 + 'deg)';
+					assembly.appendChild(face3);			
+					row3.push(face3);
+					
+					faceX += 10;
+					faceX2 -= 10;
+				}
+			}
+			
+			createAssembly();
+			createFace();
+			
+			function render()
+			{
+				//face.style.left = faceX + 'px';
+				
+				for (r = 0; r < row1.length; r++)
+				{
+					row1[r].style.transform = 'rotate(' + faceX + 'deg)';
+					row2[r].style.transform = 'rotate(' + faceX / 5 + 'deg)';
+					row3[r].style.transform = 'rotate(' + faceX / 10 + 'deg)';
+				}
+				faceX++;
+				
+				window.requestAnimationFrame(render);
+			}
+			
+			window.requestAnimationFrame(render);
+		}
+		</script>
+	</body>
+</html>
